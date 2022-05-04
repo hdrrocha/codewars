@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">codewars</string>
+    <string name="name">Name</string>
+    <string name="slug">Slug</string>
+    <string name="completed_languages">Completed Languages</string>
+    <string name="compteted_at">00/00/0000</string>
+    <string name="app_error">There was some problem loading the data. Try again later.</string>
 </resources>
