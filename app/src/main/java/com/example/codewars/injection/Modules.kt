@@ -7,13 +7,20 @@ import androidx.paging.PagingSource
 import com.example.codewars.BuildConfig
 import com.example.codewars.data.api.CodeWarsApi
 import com.example.codewars.data.model.Challenges
+import com.example.codewars.data.repository.ChallengeDetailsRepositoryImp
 import com.example.codewars.data.repository.ChallengesByUserRepositoryImp
 import com.example.codewars.data.source.ChallengesByUserPagingSource
+import com.example.codewars.domain.mapper.ChallengeDetailsMapperImp
 import com.example.codewars.domain.mapper.ChallengesByUserMapperImp
+import com.example.codewars.domain.mapper.abs.ChallengeDetailsMapper
 import com.example.codewars.domain.mapper.abs.ChallengesByUserMapper
+import com.example.codewars.domain.repository.ChallengeDetailsRepository
 import com.example.codewars.domain.repository.ChallengesByUserRepository
+import com.example.codewars.domain.usercase.ChallengeDetailsUseCaseImp
 import com.example.codewars.domain.usercase.ChallengesByUserUseCaseImp
+import com.example.codewars.domain.usercase.abs.ChallengeDetailsUseCase
 import com.example.codewars.domain.usercase.abs.ChallengesByUserUseCase
+import com.example.codewars.domain.viewmodel.ChallengeDetailsViewModel
 import com.example.codewars.domain.viewmodel.ChallengesByUserViewModel
 import com.example.codewars.router.ChallengesListRouterImp
 import com.example.codewars.router.abs.ChallengesListRouter
@@ -70,11 +77,19 @@ object Modules {
                 pager = get()
             )
         }
+        single<ChallengeDetailsRepository> {
+            ChallengeDetailsRepositoryImp(
+                api = get()
+            )
+        }
     }
 
     private val mapper = module {
         single<ChallengesByUserMapper> {
             ChallengesByUserMapperImp()
+        }
+        single<ChallengeDetailsMapper> {
+            ChallengeDetailsMapperImp()
         }
     }
 
@@ -85,12 +100,23 @@ object Modules {
                 challengesByUserRepository = get()
             )
         }
+        single<ChallengeDetailsUseCase> {
+            ChallengeDetailsUseCaseImp(
+                challengeDetailsRepository = get(),
+                mapper = get()
+            )
+        }
     }
 
     private val viewModel = module {
         viewModel {
             ChallengesByUserViewModel(
                 useUseCase = get()
+            )
+        }
+        viewModel {
+            ChallengeDetailsViewModel(
+                useCase = get()
             )
         }
 

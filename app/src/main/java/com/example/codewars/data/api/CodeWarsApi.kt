@@ -13,8 +13,8 @@ interface CodeWarsApi {
         @Query("offset") offset: Int = 200
     ): ChallengesByUser
 
-    @GET("code-challenges/{id}/")
-    suspend fun getChallengesDetails(
+    @GET("code-challenges/{id}")
+    suspend fun getChallengeDetails(
         @Path("id") id: String
     ): ChallengesDetails
 }

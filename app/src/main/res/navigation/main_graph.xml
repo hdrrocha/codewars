@@ -23,9 +23,9 @@
 
     <fragment
         android:id="@+id/fragment_challenge_details"
-        android:name="com.example.codewars.ui.fragments.ChallengesListFragment"
+        android:name="com.example.codewars.ui.fragments.ChallengeDetailsFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_challenges_list">
+        tools:layout="@layout/fragment_challenge_details">
 
         <argument
             android:name="id_challenge"
