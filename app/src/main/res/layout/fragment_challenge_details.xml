@@ -20,246 +20,262 @@
             android:layout_height="match_parent"
             tools:context=".ui.activity.MainActivity">
 
-            <TextView
-                android:id="@+id/createdUserNameTv"
-                android:layout_width="@dimen/size_none"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginTop="@dimen/spacing_normal"
-                android:padding="10dp"
-                android:text="@{@string/created_by(viewModel.createdUsername)}"
-                android:textColor="@color/neutralYellow"
-                android:textSize="@dimen/text_size_small"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginTop= "@dimen/spacing_micro"
-                android:layout_marginEnd="@dimen/spacing_normal"
-                app:cardCornerRadius="@dimen/radius_large"
-                app:cardElevation="@dimen/card_elevation"
-                app:cardPreventCornerOverlap="false"
+            <include
+                android:id="@+id/loadList"
+                layout="@layout/view_loading_details"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/createdUserNameTv">
+                app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+                app:show="@{viewModel.loading}" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/primaryLightColor">
-
-                    <TextView
-                        android:id="@+id/nameTv"
-                        android:layout_width="@dimen/size_none"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/spacing_normal"
-                        android:layout_marginTop="@dimen/spacing_normal"
-                        android:layout_marginEnd="@dimen/spacing_normal"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_standard"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="@{viewModel.name}" />
-
-                    <TextView
-                        android:id="@+id/userSlugTv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop= "@dimen/spacing_micro"
-                        android:layout_marginEnd="@dimen/spacing_normal"
-                        android:text="@{viewModel.slug}"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_small"
-                        android:textStyle="italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/nameTv"
-                        app:layout_constraintTop_toBottomOf="@+id/nameTv" />
-
-                    <ImageView
-                        android:id="@+id/imageGalery"
-                        android:layout_width="@dimen/size_none"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/spacing_normal"
-                        android:layout_marginTop="@dimen/spacing_normal"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/ic_baseline_star_border_24"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userSlugTv" />
-
-                    <TextView
-                        android:id="@+id/totalStarsTv"
-                        android:layout_width="@dimen/size_none"
-                        android:layout_height="wrap_content"
-                        android:text="@{viewModel.totalStars}"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_small"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageGalery"
-                        app:layout_constraintStart_toEndOf="@+id/imageGalery"
-                        app:layout_constraintTop_toTopOf="@+id/imageGalery" />
-
-                    <ImageView
-                        android:id="@+id/trophyImg"
-                        android:layout_width="@dimen/size_none"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart= "@dimen/spacing_micro"
-                        android:layout_marginTop="@dimen/spacing_normal"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/trophy_outline"
-                        app:layout_constraintStart_toEndOf="@+id/totalStarsTv"
-                        app:layout_constraintTop_toBottomOf="@+id/userSlugTv" />
-
-                    <TextView
-                        android:id="@+id/totalRankTv"
-                        android:layout_width="@dimen/size_none"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart= "@dimen/spacing_micro"
-                        android:text="@{viewModel.rankName}"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_small"
-                        app:layout_constraintBottom_toBottomOf="@+id/trophyImg"
-                        app:layout_constraintStart_toEndOf="@+id/trophyImg"
-                        app:layout_constraintTop_toTopOf="@+id/trophyImg"
-                        app:layout_constraintVertical_bias="1.0" />
-
-                    <ImageView
-                        android:id="@+id/voteScoreImg"
-                        android:layout_width="@dimen/size_none"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart= "@dimen/spacing_micro"
-                        android:layout_marginTop="@dimen/spacing_normal"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/ic_baseline_speed_24"
-                        app:layout_constraintStart_toEndOf="@+id/totalRankTv"
-                        app:layout_constraintTop_toBottomOf="@+id/userSlugTv" />
-
-                    <TextView
-                        android:id="@+id/voteScoreTv"
-                        android:layout_width="@dimen/size_none"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart= "@dimen/spacing_micro"
-                        android:text="@{viewModel.voteScore}"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_small"
-                        app:layout_constraintBottom_toBottomOf="@+id/voteScoreImg"
-                        app:layout_constraintStart_toEndOf="@+id/voteScoreImg"
-                        app:layout_constraintTop_toTopOf="@+id/voteScoreImg"
-                        app:layout_constraintVertical_bias="1.0" />
-
-                    <ImageView
-                        android:id="@+id/approvedByImg"
-                        android:layout_width="@dimen/size_none"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart= "@dimen/spacing_micro"
-                        android:layout_marginTop="@dimen/spacing_normal"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/ic_outline_person_outline_24"
-                        app:layout_constraintStart_toEndOf="@+id/voteScoreTv"
-                        app:layout_constraintTop_toBottomOf="@+id/userSlugTv" />
-
-                    <TextView
-                        android:id="@+id/approvedByTv"
-                        android:layout_width="@dimen/size_none"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart= "@dimen/spacing_micro"
-                        android:text="@{viewModel.approvedByUsername}"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_small"
-                        app:layout_constraintBottom_toBottomOf="@+id/approvedByImg"
-                        app:layout_constraintStart_toEndOf="@+id/approvedByImg"
-                        app:layout_constraintTop_toTopOf="@+id/approvedByImg"
-                        app:layout_constraintVertical_bias="1.0" />
-
-                    <TextView
-                        android:id="@+id/categoryTv"
-                        android:layout_width="@dimen/size_none"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/spacing_normal"
-                        android:layout_marginTop="@dimen/spacing_normal"
-                        android:layout_marginEnd="@dimen/spacing_normal"
-                        android:layout_marginBottom="@dimen/spacing_normal"
-                        android:text="@{viewModel.languages}"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_standard"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/totalRankTv" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardDescription"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginTop="@dimen/spacing_standard"
-                android:layout_marginEnd="@dimen/spacing_normal"
-                app:cardCornerRadius="@dimen/radius_large"
-                app:cardElevation="@dimen/card_elevation"
-                app:cardPreventCornerOverlap="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card">
+                android:layout_height="match_parent"
+                app:show="@{!viewModel.loading}">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/createdUserNameTv"
+                    android:layout_width="@dimen/size_none"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:padding="10dp"
+                    android:text="@{@string/created_by(viewModel.createdUsername)}"
+                    android:textColor="@color/neutralYellow"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/primaryLightColor">>
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_micro"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    app:cardCornerRadius="@dimen/radius_large"
+                    app:cardElevation="@dimen/card_elevation"
+                    app:cardPreventCornerOverlap="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/createdUserNameTv">
 
-                    <TextView
-                        android:id="@+id/descriptionTv"
-                        android:layout_width="@dimen/size_none"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/primaryLightColor">
+
+                        <TextView
+                            android:id="@+id/nameTv"
+                            android:layout_width="@dimen/size_none"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:layout_marginEnd="@dimen/spacing_normal"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_standard"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="@{viewModel.name}" />
+
+                        <TextView
+                            android:id="@+id/userSlugTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_micro"
+                            android:layout_marginEnd="@dimen/spacing_normal"
+                            android:text="@{viewModel.slug}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            android:textStyle="italic"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/nameTv"
+                            app:layout_constraintTop_toBottomOf="@+id/nameTv" />
+
+                        <ImageView
+                            android:id="@+id/imageGalery"
+                            android:layout_width="@dimen/size_none"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_star_border_24"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/userSlugTv" />
+
+                        <TextView
+                            android:id="@+id/totalStarsTv"
+                            android:layout_width="@dimen/size_none"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.totalStars}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageGalery"
+                            app:layout_constraintStart_toEndOf="@+id/imageGalery"
+                            app:layout_constraintTop_toTopOf="@+id/imageGalery" />
+
+                        <ImageView
+                            android:id="@+id/trophyImg"
+                            android:layout_width="@dimen/size_none"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_micro"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/trophy_outline"
+                            app:layout_constraintStart_toEndOf="@+id/totalStarsTv"
+                            app:layout_constraintTop_toBottomOf="@+id/userSlugTv" />
+
+                        <TextView
+                            android:id="@+id/totalRankTv"
+                            android:layout_width="@dimen/size_none"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_micro"
+                            android:text="@{viewModel.rankName}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            app:layout_constraintBottom_toBottomOf="@+id/trophyImg"
+                            app:layout_constraintStart_toEndOf="@+id/trophyImg"
+                            app:layout_constraintTop_toTopOf="@+id/trophyImg"
+                            app:layout_constraintVertical_bias="1.0" />
+
+                        <ImageView
+                            android:id="@+id/voteScoreImg"
+                            android:layout_width="@dimen/size_none"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_micro"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_baseline_speed_24"
+                            app:layout_constraintStart_toEndOf="@+id/totalRankTv"
+                            app:layout_constraintTop_toBottomOf="@+id/userSlugTv" />
+
+                        <TextView
+                            android:id="@+id/voteScoreTv"
+                            android:layout_width="@dimen/size_none"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_micro"
+                            android:text="@{viewModel.voteScore}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            app:layout_constraintBottom_toBottomOf="@+id/voteScoreImg"
+                            app:layout_constraintStart_toEndOf="@+id/voteScoreImg"
+                            app:layout_constraintTop_toTopOf="@+id/voteScoreImg"
+                            app:layout_constraintVertical_bias="1.0" />
+
+                        <ImageView
+                            android:id="@+id/approvedByImg"
+                            android:layout_width="@dimen/size_none"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_micro"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_outline_person_outline_24"
+                            app:layout_constraintStart_toEndOf="@+id/voteScoreTv"
+                            app:layout_constraintTop_toBottomOf="@+id/userSlugTv" />
+
+                        <TextView
+                            android:id="@+id/approvedByTv"
+                            android:layout_width="@dimen/size_none"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_micro"
+                            android:text="@{viewModel.approvedByUsername}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            app:layout_constraintBottom_toBottomOf="@+id/approvedByImg"
+                            app:layout_constraintStart_toEndOf="@+id/approvedByImg"
+                            app:layout_constraintTop_toTopOf="@+id/approvedByImg"
+                            app:layout_constraintVertical_bias="1.0" />
+
+                        <TextView
+                            android:id="@+id/categoryTv"
+                            android:layout_width="@dimen/size_none"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:layout_marginEnd="@dimen/spacing_normal"
+                            android:layout_marginBottom="@dimen/spacing_normal"
+                            android:text="@{viewModel.languages}"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_standard"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/totalRankTv" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_standard"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    app:cardCornerRadius="@dimen/radius_large"
+                    app:cardElevation="@dimen/card_elevation"
+                    app:cardPreventCornerOverlap="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/spacing_normal"
-                        android:layout_marginTop="@dimen/spacing_normal"
-                        android:layout_marginEnd="@dimen/spacing_normal"
-                        android:layout_marginBottom="@dimen/spacing_normal"
-                        android:text="@{viewModel.description}"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_small"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                        android:background="@color/primaryLightColor">>
 
-            <ImageView
-                android:id="@+id/tagImg"
-                android:layout_width="@dimen/size_none"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginTop="@dimen/spacing_normal"
-                android:scaleType="fitCenter"
-                android:src="@drawable/tag_outline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardDescription" />
+                        <TextView
+                            android:id="@+id/descriptionTv"
+                            android:layout_width="@dimen/size_none"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:layout_marginEnd="@dimen/spacing_normal"
+                            android:layout_marginBottom="@dimen/spacing_normal"
+                            android:text="@{viewModel.description}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_small"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/tagTv"
-                android:layout_width="@dimen/size_none"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_micro"
-                android:layout_marginEnd="@dimen/spacing_normal"
-                android:text="@{viewModel.tagsOfChallenge}"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_small"
-                app:layout_constraintBottom_toBottomOf="@+id/tagImg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tagImg"
-                app:layout_constraintTop_toTopOf="@+id/tagImg"
-                app:layout_constraintVertical_bias="1.0" />
+                <ImageView
+                    android:id="@+id/tagImg"
+                    android:layout_width="@dimen/size_none"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/tag_outline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardDescription" />
+
+                <TextView
+                    android:id="@+id/tagTv"
+                    android:layout_width="@dimen/size_none"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_micro"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:text="@{viewModel.tagsOfChallenge}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="@+id/tagImg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tagImg"
+                    app:layout_constraintTop_toTopOf="@+id/tagImg"
+                    app:layout_constraintVertical_bias="1.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

@@ -17,12 +17,11 @@ class ChallengesByUserViewModel(
 
     val error = MutableLiveData<Boolean>()
 
-    val loading = Transformations.map(mutableData) {
-        it != null
-    }
+    val loading = MutableLiveData<Boolean>()
 
     fun loadData() = viewModelScope.launch {
         try {
+            loading.value = true
             if (mutableData.value != null) return@launch
             useUseCase.fetchChallengesbyUser().cachedIn(viewModelScope).collect {
                 mutableData.value = it
@@ -30,6 +29,9 @@ class ChallengesByUserViewModel(
             }
         } catch (e: Exception) {
             error.value = true
+            loading.value = false
+        } finally {
+            loading.value = false
         }
     }
 }
