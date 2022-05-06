@@ -12,9 +12,11 @@ class ChallengesByUserMapperImp : ChallengesByUserMapper {
     override fun map(input: PagingData<Challenges>) = input.map { challenges ->
         ChallengesUi(
             id = challenges.id,
-            name = challenges.name,
+            name = challenges.name?.uppercase(),
             slug = challenges.slug,
-            completedLanguages = challenges.completedLanguages.toString(),
+            completedLanguages = challenges.completedLanguages.joinToString {
+                "${it.uppercase()}"
+            },
             completeDate = challenges.completedAt?.toDateDisplay()
         )
     }

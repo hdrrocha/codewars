@@ -14,7 +14,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/card_height"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_margin"
         app:cardCornerRadius="@dimen/radius_large"
         app:cardElevation="@dimen/card_elevation"
@@ -25,44 +25,67 @@
             android:layout_height="match_parent"
             android:background="@color/primaryLightColor">
 
-            <TextView
-                android:id="@+id/userNameItemTv"
-                android:layout_width="@dimen/size_none"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/imageName"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_outline_sports_martial_arts_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/nameItemTv"
+                android:layout_width="@dimen/size_none"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_standard"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/imageName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageName"
+                app:layout_constraintTop_toTopOf="@+id/imageName"
                 tools:text="@{item.name}" />
 
             <TextView
                 android:id="@+id/userSlugItemTv"
                 android:layout_width="@dimen/size_none"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small"
                 android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/nameItemTv"
+                app:layout_constraintTop_toBottomOf="@+id/nameItemTv"
+                tools:text="@{item.slug}" />
+
+            <ImageView
+                android:id="@+id/imageCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_outline_code_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/userNameItemTv"
-                tools:text="@{item.slug}"  />
+                app:layout_constraintTop_toBottomOf="@+id/userSlugItemTv" />
 
             <TextView
                 android:id="@+id/userCompletedLanguagesItemTv"
                 android:layout_width="@dimen/size_none"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/userSlugItemTv"
-                tools:text="@{item.completedLanguages.toString()}"  />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageCode"
+                app:layout_constraintTop_toTopOf="@+id/imageCode"
+                tools:text="@{item.completedLanguages.toString()}" />
 
             <TextView
                 android:id="@+id/userCompletedAtTv"
@@ -72,14 +95,15 @@
                 android:layout_marginTop="35dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
+                android:text="@{@string/created_by(item.completeDate)}"
                 android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_small"
+                android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/userCompletedLanguagesItemTv"
-                tools:text="@{item.completeDate}"  />
+                app:layout_constraintTop_toBottomOf="@+id/userCompletedLanguagesItemTv" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

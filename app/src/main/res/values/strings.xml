@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">codewars</string>
+    <string name="app_name">CODE WARS</string>
     <string name="name">Name</string>
     <string name="slug">Slug</string>
     <string name="completed_languages">Completed Languages</string>
@@ -9,4 +9,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="created_by">Created by %s</string>
+    <string name="completed_in">Completed in %s</string>
 </resources>
