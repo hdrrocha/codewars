@@ -1,6 +1,6 @@
 # Codewars
 
-A simple withi CodeWars data app that loads information from the Codewars  API to show you some of the skills you can use in Android development.
+A simple app that loads information from the Codewars  API to show you some of the skills you can use in Android development.
 
 Features/Components includes:
 
