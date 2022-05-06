@@ -10,7 +10,7 @@ data class ChallengesDetails(
     @SerializedName("category") var category: String?,
     @SerializedName("publishedAt") var publishedAt: String?,
     @SerializedName("approvedAt") var approvedAt: String?,
-    @SerializedName("languages") var languages: ArrayList<String>,
+    @SerializedName("languages") var languages: List<String>,
     @SerializedName("url") var url: String?,
     @SerializedName("rank") var rank: Rank? ,
     @SerializedName("createdAt") var createdAt: String?,
@@ -21,7 +21,7 @@ data class ChallengesDetails(
     @SerializedName("totalCompleted") var totalCompleted: Int?,
     @SerializedName("totalStars") var totalStars: Int?,
     @SerializedName("voteScore") var voteScore: Int?,
-    @SerializedName("tags") var tags: ArrayList<String>,
+    @SerializedName("tags") var tags: List<String>,
     @SerializedName("contributorsWanted") var contributorsWanted: Boolean?,
     @SerializedName("unresolved") var unresolved: Unresolved?
 )
