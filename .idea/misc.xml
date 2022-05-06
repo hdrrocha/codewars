@@ -6,11 +6,16 @@
         <entry key="..\:/develop/codewars/app/src/main/res/drawable-v24/hexagon.xml" value="0.29259259259259257" />
         <entry key="..\:/develop/codewars/app/src/main/res/drawable-v24/tag_outline.xml" value="0.287962962962963" />
         <entry key="..\:/develop/codewars/app/src/main/res/drawable-v24/trophy_outline.xml" value="0.29259259259259257" />
+        <entry key="..\:/develop/codewars/app/src/main/res/drawable/ic_baseline_speed_24.xml" value="0.16041666666666668" />
         <entry key="..\:/develop/codewars/app/src/main/res/drawable/ic_baseline_star_border_24.xml" value="0.29259259259259257" />
+        <entry key="..\:/develop/codewars/app/src/main/res/drawable/ic_outline_app_registration_24.xml" value="0.16041666666666668" />
+        <entry key="..\:/develop/codewars/app/src/main/res/drawable/ic_outline_code_24.xml" value="0.16041666666666668" />
+        <entry key="..\:/develop/codewars/app/src/main/res/drawable/ic_outline_person_outline_24.xml" value="0.16041666666666668" />
+        <entry key="..\:/develop/codewars/app/src/main/res/drawable/ic_outline_sports_martial_arts_24.xml" value="0.16041666666666668" />
         <entry key="..\:/develop/codewars/app/src/main/res/layout/activity_main.xml" value="0.31875" />
         <entry key="..\:/develop/codewars/app/src/main/res/layout/challenge_row_item.xml" value="0.3123359580052493" />
         <entry key="..\:/develop/codewars/app/src/main/res/layout/character_row_item.xml" value="0.264" />
-        <entry key="..\:/develop/codewars/app/src/main/res/layout/fragment_challenge_details.xml" value="0.3976897689768977" />
+        <entry key="..\:/develop/codewars/app/src/main/res/layout/fragment_challenge_details.xml" value="0.4064070351758794" />
         <entry key="..\:/develop/codewars/app/src/main/res/layout/fragment_challenges_by_user.xml" value="0.2595108695652174" />
         <entry key="..\:/develop/codewars/app/src/main/res/layout/fragment_challenges_details.xml" value="0.4553415061295972" />
         <entry key="..\:/develop/codewars/app/src/main/res/layout/fragment_challenges_list.xml" value="0.32563405797101447" />

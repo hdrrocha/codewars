@@ -24,7 +24,7 @@
     <dimen name="text_size_small">16sp</dimen>
     <dimen name="text_size_tiny">12sp</dimen>
 
-    <dimen name="border_standard">16dp</dimen>
+    <dimen name="border_standard">@dimen/spacing_normal</dimen>
     <dimen name="border_thick">2dp</dimen>
 
     <dimen name="radius_large">8dp</dimen>
